@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+
+$my-primary: mat.define-palette(mat.$pink-palette, 500);
+$my-accent: mat.define-palette(mat.$teal-palette, 500);
+$my-success: mat.define-palette(mat.$teal-palette,500);
+$my-warn: mat.define-palette(mat.$red-palette,700);
+
+
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   success: $my-success,
+   warn:$my-warn,
+    ),
+    density: 0,
+));
+
+@include mat.core-theme($my-theme);
+@include mat.button-theme($my-theme);
+
+// components
+body{
+  background-color:#171717
+}
+*{
+  color:antiquewhite;
+}
+
+.text-accent{
+  color:map-get(map-get($my-theme,'color'),'success') !important;
+}
+

@@ -1,0 +1,121 @@
+.sidenav{
+  background-color: #212121;
+  transition: all 0.3s ease;
+  position: fixed;
+  display: block;
+  z-index:4;
+  top:0;
+  left: 0;
+  height:100vh;
+  box-shadow: -2rem 0rem 0.5rem 2rem #000000;
+  width:5rem;
+  border-top-right-radius: 0.8rem;
+  overflow-y: hidden;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  padding: 0.9rem;
+  width:100%;
+  .logo{
+    margin:0 0.3rem;
+    background-color: #fff;
+    text-align: center;
+    width:3rem;
+    height:3rem;
+    min-width: 3rem;
+    padding: 0.313rem;
+    border-radius: 0.625rem;
+    font-size: 2rem;
+    font-weight:900;
+    color:#0f0f0f;
+    cursor:pointer;
+    border:none;
+  }
+  .logo-text{
+    overflow: hidden;
+    margin-left : 0.5rem;
+    font-size: 18px;
+    font-weight: 700;
+    color:#fff;
+  }
+  .btn-close{
+    margin-left:auto;
+    cursor:pointer;
+    width:2rem;
+    height:2rem;
+    border-radius: 50%;
+    border:none;
+        background-color: transparent;
+    display:none;
+    .fa-times{
+      font-size:24px;
+      padding:0.28rem 0
+    }
+  }
+}
+
+.sidenav-collapsed{
+  position: absolute;
+  width:13rem;
+  .btn-close{
+    display: block;
+  }
+}
+
+.sidenav-nav{
+  list-style: none;
+  padding:1rem;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 3.60rem);
+  cursor: pointer;
+  .sidenav-nav-item{
+    width:100%;
+    margin-bottom: 0.6rem;
+    .side-nav-link{
+      border-radius: 0.625rem;
+      display:flex;
+      align-items: center;
+      height:3rem;
+      color:#f3f3f3;
+      text-decoration: none;
+      transition: color .3s ease;
+      .sidenav-link-icon{
+        font-size:22px;
+        width:2rem;
+        min-width: 2rem;
+        margin:0 0.5rem;
+        text-align: center;
+      }
+      .sidenav-link-text{
+        margin-left:1.5rem;
+      }
+    }
+  }
+}
+
+.sidenav-nav-item:hover{
+  .side-nav-link{
+    background-color: #fff;
+    .sidenav-link-icon{
+      color:#0f0f0f !important;
+    }
+    .sidenav-link-text{
+      color:#0f0f0f !important;
+    }
+  }
+}
+
+.active{
+  background-color: #fff;
+  .sidenav-link-icon,
+  .sidenav-link-text{
+
+    color:#0f0f0f !important;
+  }
+
+}

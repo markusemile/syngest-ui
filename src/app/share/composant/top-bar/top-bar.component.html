@@ -1,0 +1,14 @@
+<mat-toolbar [ngClass]="getBodyClass()">
+      <div class="return-message" *ngIf="returnMessage">
+        <i class="fa-duotone fa-arrow-left-from-line"></i>
+        <a [routerLink]="['/'+returnMessage.url]" >{{returnMessage.label}}</a>
+
+      </div>
+      <div class="top-bar-list">
+        <div class="top-bar-icon" *ngFor="let item of barData"
+        >
+        <i [className]="item.icon"></i>
+        <button mat-mini-fab matBadge="15" matBadgePosition="before"></button>
+        </div>
+      </div>
+</mat-toolbar>
