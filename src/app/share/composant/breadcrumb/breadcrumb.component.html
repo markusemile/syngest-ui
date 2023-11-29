@@ -1,0 +1,7 @@
+<div class="breadcrumb" *ngIf="datas.length>0">
+  <span class="breadcrumb-item" *ngFor="let data of datas,let i = index" >
+
+    <a [routerLink]="data.path" [ngStyle]="{'color': i==datas.length-1 ? 'teal' : null}">{{data.title}}</a>
+    <span *ngIf="i < datas.length-1">/</span>
+  </span>
+</div>

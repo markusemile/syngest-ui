@@ -1,0 +1,41 @@
+<h1>{{pageTitle}}</h1>
+<table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id" [ngStyle]="{}">Id</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="lotId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Lot id">Lot Id</th>
+    <td mat-cell *matCellDef="let element">{{element.lot_id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="propertyId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Property id" >Property Id</th>
+    <td mat-cell *matCellDef="let element">{{element.property_id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef ></th>
+    <td mat-cell *matCellDef="let element">
+      <div fxLayout="row" class="color-info">
+        <button
+            mat-icon-button
+            matTooltipClass="bg-tooltip"
+            matTooltip="Edit"
+            (click)="editProperty(element.property_id)"
+            >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+            mat-icon-button
+            matTooltip="Delete"
+            matTooltipClass="bg-tooltip"
+            (click)="deleteProperty(element.property_id)"
+            >
+          <mat-icon >delete</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-row *matHeaderRowDef="displayColumns"></tr>
+  <tr mat-row *matRowDef="let row;columns:displayColumns"></tr>
+</table>

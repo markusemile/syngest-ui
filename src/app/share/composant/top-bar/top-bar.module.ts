@@ -6,11 +6,14 @@ import { LayoutModule} from '@angular/cdk/layout'
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule} from '@angular/material/badge'
 import { RouterModule } from '@angular/router';
+import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
+
 
 
 @NgModule({
   declarations: [
-    TopBarComponent
+    TopBarComponent,
+
   ],
   imports: [
   CommonModule,
@@ -18,7 +21,8 @@ import { RouterModule } from '@angular/router';
   LayoutModule,
   MatButtonModule,
   MatBadgeModule,
-  RouterModule
+  RouterModule,
+  BreadcrumbModule
   ],
   exports:[
     TopBarComponent

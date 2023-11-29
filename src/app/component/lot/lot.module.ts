@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DetailComponent } from './detail/detail.component';
+import { LotRoutingModule } from './lot-routing.modules';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DetailComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    LotRoutingModule
+  ],
+  exports:[
+    LotRoutingModule
   ]
 })
 export class LotModule { }

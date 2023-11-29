@@ -6,11 +6,11 @@ import { MatToolbarModule} from '@angular/material/toolbar'
 import { MatListModule } from '@angular/material/list'
 import { MatButtonModule } from '@angular/material/button';
 import { NavigationComponent } from './navigation.component';
-import { NavItemComponent } from './nav-item/nav-item.component';
 import { TopBarModule } from '../top-bar/top-bar.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SublevelNavigationComponent } from './sublevel-navigation.component';
 
 
 
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     NavigationComponent,
-    NavItemComponent
+    SublevelNavigationComponent,
   ],
   imports: [
     BrowserAnimationsModule,

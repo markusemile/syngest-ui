@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
-$font-primary:"Lato",sans-serif;
+$font-primary:"Poppins",sans-serif;
 $font-title:"Roboto Condensed",sans-serif;
 
 body{
   color:rgb(7, 3, 33);
   font-family: $font-primary;
-  font-size: 1.2em;
+  font-size: 1em;
   h1,h2,h3,h4,h5,h6{
     font-family: $font-title;
   }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule} from '@angular/cdk/layout'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModuleModule } from './ui/material/ui-module.module';
@@ -16,6 +15,13 @@ import { EventComponent } from './component/event/event.component';
 import { OwnerComponent } from './component/owner/owner.component';
 import { LodgerComponent } from './component/lodger/lodger.component';
 import { DocumentsComponent } from './component/documents/documents.component';
+import { PropertyComponent } from './component/property/property.component';
+import { LotRoutingModule } from './component/lot/lot-routing.modules';
+import { LotModule } from './component/lot/lot.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { PropertyModule } from './component/property/property.module';
+
 
 
 @NgModule({
@@ -23,7 +29,6 @@ import { DocumentsComponent } from './component/documents/documents.component';
     AppComponent,
     DashboardComponent,
     BodyComponent,
-    LotComponent,
     EventComponent,
     OwnerComponent,
     LodgerComponent,
@@ -37,6 +42,10 @@ import { DocumentsComponent } from './component/documents/documents.component';
     LayoutModule,
     NavigationModule,
     TopBarModule,
+    LotModule,
+    FlexLayoutModule,
+    MatIconModule,
+    PropertyModule
 
   ],
   providers: [],

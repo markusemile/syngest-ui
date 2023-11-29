@@ -1,17 +1,38 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : '' ">
   <div class="logo-container">
-    <div class="logo text-accent" @fadeInOut  (click)="toggleCollapse()" >A</div>
+    <div class="logo text-accent" @fadeInOut (click)="toggleCollapse()">A</div>
     <div class="logo-text" *ngIf="collapsed">Angular</div>
     <div class="btn-close">
-      <i class="fa fa-times close-icon" (click)="closeCollapse()" *ngIf="collapsed" @rotate></i>
+      <i class="fa fa-times close-icon" (click)="closeCollapse()" *ngIf="collapsed" [@rotate]></i>
     </div>
   </div>
-  <ul class="sidenav-nav">
-    <li class="sidenav-nav-item" *ngFor="let item of navData">
-        <a class="side-nav-link" [routerLink]="[item.routerLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          <span class="sidenav-link-text" *ngIf="collapsed">{{item.label}}</span>
+  <div class="scrollwrap scrollwrap_delayed">
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData"  >
+        <a class="sidenav-nav-link" *ngIf="data.items && data.items.length > 0" [ngClass]="getActiveClass(data)" (click)="handleClick(data)">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
+          <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>{{data.label}}</span>
+          <i *ngIf="data.items && collapsed" class="fa fa-angle-right"
+            [ngClass]="!data.expanded ? 'fa-duotone fa-angle-right': 'fa-duotone fa-angle-down' "></i>
         </a>
-    </li>
-  </ul>
+
+        <a class="sidenav-nav-link" *ngIf="!data.items || (data.items && data.items.length===0)"
+          [routerLink]="data.routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="shrinkItems(data)">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
+          <span *ngIf="collapsed" @fadeInOut class="sidenav-link-text">{{data.label}}s</span>
+        </a>
+
+
+        <div *ngIf="collapsed && data.items && data.items.length > 0">
+          <app-sublevel-navigation
+            [data]="data"
+            [collapsed]="collapsed"
+            [multiple]="multiple"
+            [expanded]="data && data.expanded ? data.expanded : false">
+        </app-sublevel-navigation>
+        </div>
+      </li>
+
+    </ul>
+  </div>
 </div>

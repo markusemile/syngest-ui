@@ -35,3 +35,18 @@ body{
   color:map-get(map-get($my-theme,'color'),'success') !important;
 }
 
+
+.color-success{
+  color:green;
+}
+.color-info{
+  color:#0f6c7c
+}
+.color-warn{
+  color:rgb(180, 5, 5);
+}
+.bg-tooltip{
+  background-color:#0f6c7c;
+  color:#171717;
+  border-radius:0.5rem;
+}

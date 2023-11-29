@@ -2,6 +2,8 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 
 import { navbarData } from './nav-datas';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { INavbarData } from './navHelper';
+import { Router } from '@angular/router';
 
 interface SideNavToggle{
   screenWidth : number;
@@ -41,8 +43,12 @@ export class NavigationComponent {
   collapsed = false;
   navData = navbarData;
   screenWidth=0;
+  multiple:boolean=false;
+
 
   @Output() onToggleSideNav:EventEmitter<SideNavToggle>=new EventEmitter();
+
+  constructor(private route:Router){}
 
 
   ngOnInit():void{
@@ -67,10 +73,24 @@ export class NavigationComponent {
     this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth:this.screenWidth});
   }
 
+  handleClick(item: INavbarData): void {
+    this.shrinkItems(item);
+    item.expanded = !item.expanded
+  }
+
+  getActiveClass(data: INavbarData): string {
+    return this.route.url.includes(data.routerLink) ? 'active' : '';
+  }
+
+  shrinkItems(item: INavbarData): void {
+    if (!this.multiple) {
+      for(let modelItem of this.navData) {
+        if (item !== modelItem && modelItem.expanded) {
+          modelItem.expanded = false;
+        }
+      }
+    }
 
 
-
-
+  }
 }
-
-

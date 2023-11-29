@@ -6,23 +6,30 @@ import { OwnerComponent } from './component/owner/owner.component';
 import { LodgerComponent } from './component/lodger/lodger.component';
 import { EventComponent } from './component/event/event.component';
 import { DocumentsComponent } from './component/documents/documents.component';
+import { PropertyComponent } from './component/property/property.component';
+import { PropertyRoutingModule } from './component/property/property-routing.module';
 
 const routes: Routes = [
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent,data:{ title: 'Personal Dashboard'}} ,
+  {path:'dashboard',component:DashboardComponent} ,
   {path:'lot',component:LotComponent,
     data:{
-      title:'Lot manager',
-      return:'Dashboard',
+      title:'Dashboard/Lot',
+      returnTo:'dashboard',
     }},
-  {path:'owner',component:OwnerComponent,data:{title:'Owner manager',return:'Dashboard'}},
-  {path:'lodger',component:LodgerComponent,data:{title:'Lodger manager',return:'Dashboard'}},
-  {path:'event',component:EventComponent,data:{title:'Event manager',return:'Dashboard'}},
-  {path:'document',component:DocumentsComponent,data:{title:'Documents manager',return:'Dashboard'}},
+  {path:'owner',component:OwnerComponent,data:{title:'Dashboard',returnTo:'dashboard'}},
+  {path:'lodger',component:LodgerComponent,data:{title:'Dashboard',returnTo:'dashboard'}},
+  {path:'event',component:EventComponent,data:{title:'Dashboard',returnTo:'dashboard'}},
+  {path:'document',component:DocumentsComponent,data:{title:'Dashboard',returnTo:'dashboard'}},
+  {path:"property",
+    loadChildren:()=>import('./component/property/property.module')
+      .then(m=>m.PropertyModule)}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)
+    ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

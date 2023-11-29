@@ -1,9 +1,5 @@
 <mat-toolbar [ngClass]="getBodyClass()">
-      <div class="return-message" *ngIf="returnMessage">
-        <i class="fa-duotone fa-arrow-left-from-line"></i>
-        <a [routerLink]="['/'+returnMessage.url]" >{{returnMessage.label}}</a>
-
-      </div>
+      <app-breadcrumb></app-breadcrumb>
       <div class="top-bar-list">
         <div class="top-bar-icon" *ngFor="let item of barData"
         >

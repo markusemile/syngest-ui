@@ -1,4 +1,6 @@
-export const navbarData=[
+import { INavbarData } from "./navHelper";
+
+export const navbarData:INavbarData[]=[
   {
   label:"Dashboard",
   routerLink:"dashboard",
@@ -8,6 +10,36 @@ export const navbarData=[
   label:"Lot",
   routerLink:"lot",
   icon:"fa-duotone fa-sign-hanging"
+  },
+  {
+  label:"Property",
+  routerLink:"property",
+  icon:"fa-duotone fa-house-chimney",
+  items:[
+    {
+      label:"Property manager",
+      routerLink:"property",
+    },
+    {
+      label:"New Property",
+      routerLink:"property/new",
+      items:[
+        {
+          label:"House",
+          routerLink:"property/new/house"
+        },
+        {
+          label:"Flat",
+          routerLink:"property/new/flat"
+        },
+        {
+          label:"Commercial",
+          routerLink:"property/new/shop"
+        },
+
+      ]
+    }
+  ]
   },
   {
   label:"Owner",

@@ -17,7 +17,7 @@ export class BodyComponent {
 
   ngOnInit(){
    this.route.data.subscribe(data=>{
-    console.log(data);
+    //console.log(data);
 
    });
   }

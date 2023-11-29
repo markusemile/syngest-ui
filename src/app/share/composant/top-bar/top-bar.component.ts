@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { topData } from './top-data';
-import { Router, RoutesRecognized } from '@angular/router';
+import { ActivatedRoute, ActivationEnd, Router, RoutesRecognized } from '@angular/router';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 
 interface SideNavToggle{
   screenWidth : number;
@@ -21,24 +22,16 @@ export class TopBarComponent {
 
   barData = topData;
   returnMessage:{label:string,url:string}|any;
+  constructor(private router:Router,private route:ActivatedRoute){
 
-  constructor(private route:Router){}
+   }
 
-  ngOnInit(){
-   this.route.events.subscribe((datas)=>{
-    if(datas instanceof RoutesRecognized){
-      if(datas.state.root.firstChild){
-        const data = datas.state.root.firstChild.data;
-        if(data && data['return']){
-         this.returnMessage={label:data['return'],url:"dashboard"};
-        }else{
-          this.returnMessage='';
-        }
-      }
 
-    }
-   })
+  ngAfterViewInit(){
+    this.route.firstChild?.url.subscribe(res=>{
+      console.log(res);
 
+    })
   }
 
   getBodyClass():string{
